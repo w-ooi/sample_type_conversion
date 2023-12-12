@@ -8,12 +8,13 @@
 <title>データ型の変換</title>
 <%
 	String stringDate = (String)request.getAttribute("stringDate");
-	java.sql.Date sqlDate = (java.sql.Date)request.getAttribute("sqlDate");
+	java.sql.Date sqlDate1 = (java.sql.Date)request.getAttribute("sqlDate1");
 	String convertString = (String)request.getAttribute("convertString");
 	Calendar calendarDate = (Calendar)request.getAttribute("calendarDate");
 	String compResult1 = (String)request.getAttribute("compResult1");
 	Calendar nowDate = (Calendar)request.getAttribute("nowDate");
 	String compResult2 = (String)request.getAttribute("compResult2");
+	java.sql.Date sqlDate2 = (java.sql.Date)request.getAttribute("sqlDate2");
 	
 	// Calendarの値を加工
 	int cYear = calendarDate.get(Calendar.YEAR);			// 年
@@ -27,22 +28,19 @@
 	int nDate = nowDate.get(Calendar.DATE);			// 日
 	int nHour = nowDate.get(Calendar.HOUR_OF_DAY);	// 時間
 	String strNow = nYear + "年" + nMonth + "月" + nDate + "日" + nHour + "時";
-
-
-	
-	
 %>
 </head>
 <body>
 <h2>変換結果</h2>
 <table border="1">
 <tr><th>カレンダーの値</th><td><%= stringDate %></td></tr>
-<tr><th>java.sql.Date型へ</th><td><%= sqlDate %></td></tr>
+<tr><th>Stringからjava.sql.Date型へ</th><td><%= sqlDate1 %></td></tr>
 <tr><th>再度String型へ</th><td><%= convertString %></td></tr>
 <tr><th>Calendar型へ</th><td><%= strCalendar %></td></tr>
 <tr><th>日時の比較</th><td><%= compResult1 %></td></tr>
 <tr><th>現在日時</th><td><%= strNow %></td></tr>
 <tr><th>日時の比較</th><td><%= compResult2 %></td></tr>
+<tr><th>Calendarからjava.sql.Date型へ</th><td><%= sqlDate2 %></td></tr>
 </table>
 </body>
 </html>

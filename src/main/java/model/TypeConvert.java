@@ -6,11 +6,20 @@ import java.util.Calendar;
 
 public class TypeConvert {
 
-	// テーブルに日付型データを挿入する際に必要
+	// テーブルに日付型データを挿入する際の変換
 	public java.sql.Date stringToSQLDate(String stringDate) {
 		java.sql.Date sqlDate = null;
 
 		sqlDate = java.sql.Date.valueOf(stringDate);
+
+		return sqlDate;
+	}
+	
+	// テーブルに日付型データを挿入する際の変換
+	public java.sql.Date calendarToSQLDate(Calendar calendar) {
+		java.sql.Date sqlDate = null;
+
+		sqlDate = new java.sql.Date(calendar.getTime().getTime());
 
 		return sqlDate;
 	}
@@ -24,7 +33,7 @@ public class TypeConvert {
 		return stringDate;
 	}
 
-	// 日時を比較する際に必要
+	// 日時を比較する際にCalendar型へ変換
 	public Calendar stringToCalendar(String stringDate) {
 		Calendar calendarDate = null;
 
